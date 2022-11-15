@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            font-weight: 500;
+            color: #FFFF;
+            background-color: #000;
+            border: 3px solid red;
+            word-spacing: 15px;
+            margin: 10px 500px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .box {
+            width: 300px;
+            height: 100px;
+            background-color: #000;
+            border: 3px solid red;
+            margin: 10px;
+        }
+
+        p {
+            color: #FFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        select {
+            margin: 0px 200px;
+            width: 300px;
+            font-size: 20px;
+        }
+
+        .active{
+            display: block;
+        }
+
+        .non-active{
+            display: none;
+        }
+        .optp{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Selection Properties</h1> <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="optp">
+    <select name="" id="select">
+        <option >Box Select</option>
+        <option  data-value="1" value="1">Box-1</option>
+        <option  data-value="2" value="2">Box-2</option>
+        <option  data-value="3" value="3">Box-3</option>
+        <option  data-value="4" value="4">Box-4</option>
+        <option  data-value="5" value="5">Box-5</option>
+        <option  data-value="6" value="6">Box-6</option>
+        <option  data-value="7" value="7">Box-7</option>
+        <option  data-value="8" value="8">Box-8</option>
+        <option  data-value="9" value="9">Box-9</option>
+        <option  data-value="10" value="all">None</option>
+        <option  data-value="11" value="all">All-Box</option>
+    </select>
+
+<select name="" id="select1">
+    <option >Select Group</option>
+    <option data-value="1" >Group1</option>
+    <option data-value="2" >Group2</option>
+    <option data-value="3" >Group3</option>
+</select>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="content">
+        <div class="box group group-1 box-1">
+            <p>Box Box 1</p>
+        </div>
+        <div class="box group group-2 box-2">
+            <p>Box Box 2</p>
+        </div>
+        <div class="box group group-1 box-3">
+            <p>Box Box 3</p>
+        </div>
+        <div class="box group group-2 box-4">
+            <p>Box Box 4</p>
+        </div>
+        <div class="box group group-1 box-5">
+            <p>Box Box 5</p>
+        </div>
+        <div class="box group group-2 box-6">
+            <p>Box Box 6</p>
+        </div>
+        <div class="box group group-3 box-7">
+            <p>Box Box 7</p>
+        </div>
+        <div class="box group group-3 box-8">
+            <p>Box Box 8</p>
+        </div>
+        <div class="box group group-3 box-9">
+            <p>Box Box 9</p>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+        $('#select').on('change', function(){
+
+        var  x = $('#select option:selected').data('value');
+        $('.box').addClass('non-active');
+        $('.box-'+x).removeClass('non-active');
+        if(x==11){
+            for(var i=1; i < x; i++){
+                $('.box-'+i).removeClass('non-active');
+            }
+        }
+        });
+        $('#select1').on('change', function(){
+            var y = $('#select1 option:selected').data('value');
+            $('.group').addClass('non-active');
+            $('.group-'+y).removeClass('non-active');
+        });
+
+
+
+
+
+    });
+</script>
+</html>
